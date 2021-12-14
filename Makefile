@@ -1,21 +1,21 @@
 logs:
-	docker-compose logs -f app
+	sudo docker-compose logs -f app
 
 up:
-	docker-compose up -d --remove-orphans
+	sudo docker-compose up -d --remove-orphans
 
 down:
-	docker-compose down --remove-orphans
+	sudo docker-compose down --remove-orphans
 
 build:
-	docker-compose build --pull
-	docker-compose push
+	sudo docker-compose build --pull
+	sudo docker-compose push
 
 shell:
-	docker-compose exec app bash
+	sudo docker-compose exec app bash
 
 shell-postgres:
-	docker-compose exec postgres bash
+	sudo docker-compose exec postgres bash
 
 use-dev:
 	rm -rf .env
@@ -30,4 +30,4 @@ use-traefik:
 	ln -s .envs/traefik.env .env
 
 run-test:
-	docker-compose run app
+	sudo docker-compose run app
