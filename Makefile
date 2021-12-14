@@ -19,6 +19,8 @@ down:
 
 build:
 	sudo docker-compose build --pull
+
+push:
 	sudo docker-compose push
 
 shell:
