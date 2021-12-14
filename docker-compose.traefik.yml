@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  app:
+    networks:
+      - default
+      - traefik
+    labels:
+      - traefik.frontend.rule=Host:${HOST:?Environment variable HOST is mandatory}
+      - traefik.enable=true
+
+networks:
+    traefik:
+        external:
+            name: traefik

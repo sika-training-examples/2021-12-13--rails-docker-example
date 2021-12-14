@@ -25,5 +25,9 @@ use-test:
 	rm -rf .env
 	ln -s .envs/test.env .env
 
+use-traefik:
+	rm -rf .env
+	ln -s .envs/traefik.env .env
+
 run-test:
 	docker-compose run app
