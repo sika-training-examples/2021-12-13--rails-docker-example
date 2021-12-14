@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  app:
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: reg.istry.cz/insia/postgres:14-fulltext
+    environment:
+      POSTGRES_DB: $DATABASE_NAME
+      POSTGRES_PASSWORD: $DATABASE_PASSWORD
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "$DATABASE_NAME"]
+      interval: 5s
+
+  elasticsearch:
+    image: elasticsearch:6.8.3
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD", "sh", "-c", "curl -u elastic:elastic -s -f localhost:9200/_cat/health > /dev/null || exit 1"]
+      interval: 5s
+
+volumes:
+  elasticsearch:
