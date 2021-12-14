@@ -4,6 +4,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
 
   postgres:
     image: reg.istry.cz/insia/postgres:14-fulltext
@@ -21,6 +23,7 @@ services:
     healthcheck:
       test: ["CMD", "sh", "-c", "curl -u elastic:elastic -s -f localhost:9200/_cat/health > /dev/null || exit 1"]
       interval: 5s
+      start_period: 60s
 
 volumes:
   elasticsearch:

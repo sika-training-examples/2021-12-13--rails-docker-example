@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      args:
+        RAILS_ENV: test
+    image: reg.istry.cz/insia/app-test
+    environment:
+      RAILS_ENV: test
+    command: ["sh", "command-test.sh"]

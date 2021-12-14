@@ -1,5 +1,8 @@
 FROM ruby:3
 
+ARG RAILS_ENV=development
+ENV RAILS_ENV=${RAILS_ENV}
+
 WORKDIR /project
 
 COPY Gemfile ./
