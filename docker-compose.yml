@@ -3,5 +3,3 @@ services:
   app:
     build: .
     image: reg.istry.cz/insia/app
-    ports:
-      - 3000:3000
