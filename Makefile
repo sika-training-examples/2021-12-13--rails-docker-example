@@ -1,3 +1,6 @@
+logs:
+	docker-compose logs -f app
+
 up:
 	docker-compose up -d
 
