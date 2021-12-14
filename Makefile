@@ -1,8 +1,15 @@
+.PHONY: config
+
+APP_USER=$(shell id -u):$(shell id -g)
+
 logs:
 	sudo docker-compose logs -f app
 
+config:
+	sudo APP_USER=$(APP_USER) docker-compose config
+
 up:
-	sudo docker-compose up -d --remove-orphans
+	sudo APP_USER=$(APP_USER) docker-compose up -d --remove-orphans
 
 down:
 	sudo docker-compose down --remove-orphans

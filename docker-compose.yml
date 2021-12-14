@@ -8,3 +8,21 @@ services:
       DATABASE_NAME:
       DATABASE_HOST:
       DATABASE_PASSWORD:
+    volumes:
+      - app:/project/data
+  example-file-service:
+    image: debian:11-slim
+    command:
+      - /bin/sh
+      - -c
+      - |
+        while true; do
+          date > /data/`date +%s`;
+          sleep 10;
+        done
+    volumes:
+      - example-file-service:/data
+
+volumes:
+  app:
+  example-file-service:

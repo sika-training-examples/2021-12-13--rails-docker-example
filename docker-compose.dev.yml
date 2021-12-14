@@ -6,6 +6,11 @@ services:
     ports:
       - ${PORT:-3000}:3000
 
+  example-file-service:
+    user: ${APP_USER:-0:0}
+    volumes:
+      - ./data/example-file-service:/data
+
   kibana:
     image: kibana:6.8.3
     ports:

@@ -37,3 +37,6 @@
 
 # Ignore .env
 .env
+
+# Ignore /data
+/data/**
