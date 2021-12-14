@@ -14,6 +14,9 @@ build:
 shell:
 	docker-compose exec app bash
 
+shell-postgres:
+	docker-compose exec postgres bash
+
 use-dev:
 	rm -rf .env
 	ln -s .envs/dev.env .env
