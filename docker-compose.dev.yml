@@ -5,3 +5,8 @@ services:
       - .:/project
     ports:
       - ${PORT:-3000}:3000
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: $DATABASE_NAME
+      POSTGRES_PASSWORD: $DATABASE_PASSWORD

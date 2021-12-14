@@ -3,3 +3,7 @@ services:
   app:
     build: .
     image: reg.istry.cz/insia/app
+    environment:
+      DATABASE_NAME:
+      DATABASE_HOST:
+      DATABASE_PASSWORD:
