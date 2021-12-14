@@ -11,6 +11,9 @@ config:
 up:
 	sudo APP_USER=$(APP_USER) docker-compose up -d --remove-orphans
 
+up-build:
+	sudo APP_USER=$(APP_USER) docker-compose up -d --remove-orphans --build
+
 down:
 	sudo docker-compose down --remove-orphans
 

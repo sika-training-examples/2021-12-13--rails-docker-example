@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   app:
+    user: ${APP_USER:-0:0}
     volumes:
       - .:/project
     ports:
