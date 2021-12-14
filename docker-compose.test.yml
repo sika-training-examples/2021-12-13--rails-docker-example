@@ -5,7 +5,7 @@ services:
       context: .
       args:
         RAILS_ENV: test
-    image: reg.istry.cz/insia/app-test
+    image: reg.istry.cz/insia/app-test:${TAG:-local}
     environment:
       RAILS_ENV: test
     command: ["sh", "command-test.sh"]
