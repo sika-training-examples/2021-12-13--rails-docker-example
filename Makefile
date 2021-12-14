@@ -2,10 +2,10 @@ logs:
 	docker-compose logs -f app
 
 up:
-	docker-compose up -d
+	docker-compose up -d --remove-orphans
 
 down:
-	docker-compose down
+	docker-compose down --remove-orphans
 
 build:
 	docker-compose build --pull
@@ -20,3 +20,10 @@ shell-postgres:
 use-dev:
 	rm -rf .env
 	ln -s .envs/dev.env .env
+
+use-test:
+	rm -rf .env
+	ln -s .envs/test.env .env
+
+run-test:
+	docker-compose run app
